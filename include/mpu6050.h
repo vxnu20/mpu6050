@@ -1,0 +1,52 @@
+#ifndef MPU6050_H
+#define MPU6050_H
+
+#ifndef MPU6050_EXTERN
+#include "mpu6050_cfg.h"
+#endif
+
+#define MPU6050_I2C_ADDR        0x68
+#define MPU6050_PWR_MGMT_1      0x6B
+#define MPU6050_WHO_AM_I        0x75
+// ---------------------- Accelerometer --------------------------
+#define MPU6050_ACCEL_XOUT_H     0x3B
+#define MPU6050_ACCEL_XOUT_L     0x3C
+#define MPU6050_ACCEL_YOUT_H     0x3D
+#define MPU6050_ACCEL_YOUT_L     0x3E
+#define MPU6050_ACCEL_ZOUT_H     0x3F
+#define MPU6050_ACCEL_ZOUT_L     0x40
+
+// ---------------------- Temperature ----------------------------
+#define MPU6050_TEMP_OUT_H       0x41
+#define MPU6050_TEMP_OUT_L       0x42
+
+// ---------------------- Gyroscope -----------------------------
+#define MPU6050_GYRO_XOUT_H      0x43
+#define MPU6050_GYRO_XOUT_L      0x44
+#define MPU6050_GYRO_YOUT_H      0x45
+#define MPU6050_GYRO_YOUT_L      0x46
+#define MPU6050_GYRO_ZOUT_H      0x47
+#define MPU6050_GYRO_ZOUT_L      0x48
+
+const mpu6050_ui8_t mpu6050_data_registers[14] = {
+
+    MPU6050_ACCEL_XOUT_H, MPU6050_ACCEL_XOUT_L,
+    MPU6050_ACCEL_YOUT_H, MPU6050_ACCEL_YOUT_L, 
+    MPU6050_ACCEL_ZOUT_H, MPU6050_ACCEL_ZOUT_L,
+
+    MPU6050_TEMP_OUT_H, MPU6050_TEMP_OUT_L,
+
+    MPU6050_GYRO_XOUT_H, MPU6050_GYRO_XOUT_L,
+    MPU6050_GYRO_YOUT_H, MPU6050_GYRO_YOUT_L,
+    MPU6050_GYRO_ZOUT_H, MPU6050_GYRO_ZOUT_L
+};
+
+/* function prototypes */
+void mpu6050_init();
+void mpu6050_read_all_raw_values();
+mpu6050_f32_t mpu6050_get_temperature_celsius();
+
+extern void mpu6050_read_byte(mpu6050_ui8_t, mpu6050_ui8_t, mpu6050_ui8_t*);
+extern void mpu6050_write_byte(mpu6050_ui8_t, mpu6050_ui8_t, mpu6050_ui8_t*);
+
+#endif
