@@ -1,0 +1,1 @@
+The MPU-6050 is a 6-axis MEMS MotionTracking Device that integrates a 3-axis gyroscope and a 3-axis accelerometer within a single chip
