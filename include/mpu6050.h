@@ -28,25 +28,9 @@
 #define MPU6050_GYRO_ZOUT_H      0x47
 #define MPU6050_GYRO_ZOUT_L      0x48
 
-const mpu6050_ui8_t mpu6050_data_registers[14] = {
-
-    MPU6050_ACCEL_XOUT_H, MPU6050_ACCEL_XOUT_L,
-    MPU6050_ACCEL_YOUT_H, MPU6050_ACCEL_YOUT_L, 
-    MPU6050_ACCEL_ZOUT_H, MPU6050_ACCEL_ZOUT_L,
-
-    MPU6050_TEMP_OUT_H, MPU6050_TEMP_OUT_L,
-
-    MPU6050_GYRO_XOUT_H, MPU6050_GYRO_XOUT_L,
-    MPU6050_GYRO_YOUT_H, MPU6050_GYRO_YOUT_L,
-    MPU6050_GYRO_ZOUT_H, MPU6050_GYRO_ZOUT_L
-};
-
 /* function prototypes */
 void mpu6050_init();
 void mpu6050_read_all_raw_values();
 mpu6050_f32_t mpu6050_get_temperature_celsius();
-
-extern void mpu6050_read_byte(mpu6050_ui8_t, mpu6050_ui8_t, mpu6050_ui8_t*);
-extern void mpu6050_write_byte(mpu6050_ui8_t, mpu6050_ui8_t, mpu6050_ui8_t*);
 
 #endif
